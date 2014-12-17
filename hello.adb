@@ -22,6 +22,7 @@ begin
   begin
     -- Draw ship
     for I in Pos .. Pos + Ship_Length loop
+      Set_Pixel((I, Mid + 1), Pink);
       Set_Pixel((I, Mid), Pink);
     end loop;
 
@@ -44,9 +45,11 @@ begin
       Last_Y := State.Y;
       Last_X := State.X;
 
-      -- Check where is the finger
+      -- Check where is the finger, update the ship accrodingly
       if State.X < (Width'Last - Width'First) / 2 then
-        if Pos >= 0 then
+        if Pos > 0 then
+          Set_Pixel((Pos + Ship_Length, Mid + 1), Gray);
+          Set_Pixel((Pos - 1, Mid + 1), Pink);
           Set_Pixel((Pos + Ship_Length, Mid), Gray);
           Set_Pixel((Pos - 1, Mid), Pink);
           Pos := Pos - 1;
@@ -54,6 +57,8 @@ begin
         Cur_Col := Red;
       else
         if Pos < (Width'Last - Width'First) - Ship_Length then
+          Set_Pixel((Pos, Mid + 1), Gray);
+          Set_Pixel((Pos + Ship_Length + 1, Mid + 1), Pink);
           Set_Pixel((Pos, Mid), Gray);
           Set_Pixel((Pos + Ship_Length + 1, Mid), Pink);
           Pos := Pos + 1;
