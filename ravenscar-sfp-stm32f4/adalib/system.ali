@@ -1,0 +1,129 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RR SIMPLE_BARRIERS
+RR NO_ABORT_STATEMENTS
+RR NO_ASYNCHRONOUS_CONTROL
+RR NO_CALENDAR
+RR NO_DYNAMIC_ATTACHMENT
+RR NO_DYNAMIC_PRIORITIES
+RR NO_ENTRY_QUEUE
+RR NO_EXCEPTION_PROPAGATION
+RR NO_EXCEPTION_REGISTRATION
+RR NO_FINALIZATION
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_IMPLICIT_HEAP_ALLOCATIONS
+RR NO_LOCAL_TIMING_EVENTS
+RR NO_LOCAL_PROTECTED_OBJECTS
+RV NO_LONG_LONG_INTEGERS
+RR NO_PROTECTED_TYPE_ALLOCATORS
+RR NO_RELATIVE_DELAY
+RR NO_REQUEUE_STATEMENTS
+RR NO_SELECT_STATEMENTS
+RR NO_SPECIFIC_TERMINATION_HANDLERS
+RR NO_TASK_ALLOCATORS
+RR NO_TASK_ATTRIBUTES_PACKAGE
+RR NO_TASK_HIERARCHY
+RR NO_TASK_TERMINATION
+RR NO_TERMINATE_ALTERNATIVES
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV SPARK_05
+RR MAX_PROTECTED_ENTRIES=1
+RR MAX_SELECT_ALTERNATIVES=0
+RR MAX_TASK_ENTRIES=0
+RR MAX_ASYNCHRONOUS_SELECT_NESTING=0
+R ada.execution_time.group_budgets
+R ada.execution_time.timers
+R system.multiprocessors.dispatching_domains
+
+U system%s		system.ads		9bca7a93 NE OL PU PK
+
+D system.ads		20140406181358 9bca7a93 system%s
+X 1 system.ads
+60K9*System 131E9 170l5 170e11
+66E9*Name 66e35 67r27
+66n18*SYSTEM_NAME_GNAT{66E9} 67r35
+67e4*System_Name{66E9}
+71N4*Min_Int
+72N4*Max_Int
+74N4*Max_Binary_Modulus
+75N4*Max_Nonbinary_Modulus
+77N4*Max_Base_Digits
+78N4*Max_Digits
+80N4*Max_Mantissa 81r49
+81N4*Fine_Delta
+83N4*Tick
+87M9*Address 88r41 89r28 97r33 98r33 99r33 100r33 101r33 131c9 132r28
+89m4*Null_Address{87M9} 132c4
+91N4*Storage_Unit
+92N4*Word_Size
+93N4*Memory_Size 131r24
+97V14*"<"{boolean} 97>19 97>25 103b31
+97m19 Left{87M9}
+97m25 Right{87M9}
+98V14*"<="{boolean} 98>19 98>25 104b31
+98m19 Left{87M9}
+98m25 Right{87M9}
+99V14*">"{boolean} 99>19 99>25 105b31
+99m19 Left{87M9}
+99m25 Right{87M9}
+100V14*">="{boolean} 100>19 100>25 106b31
+100m19 Left{87M9}
+100m25 Right{87M9}
+101V14*"="{boolean} 101>19 101>25 107b31
+101m19 Left{87M9}
+101m25 Right{87M9}
+111E9*Bit_Order 111e57 112r33 113r26
+111n23*High_Order_First{111E9}
+111n41*Low_Order_First{111E9}
+112e4*Default_Bit_Order{111E9} 114r26
+120i4*Max_Interrupt_Priority{positive}
+121i4*Max_Priority{positive}
+123I12*Any_Priority{integer} 124r34 125r34
+124I12*Priority{123I12} 127r32
+125I12*Interrupt_Priority{123I12}
+127i4*Default_Priority{124I12}
+144b4 Atomic_Sync_Default{boolean}
+145b4 Backend_Divide_Checks{boolean}
+146b4 Backend_Overflow_Checks{boolean}
+147b4 Command_Line_Args{boolean}
+148b4 Configurable_Run_Time{boolean}
+149b4 Denorm{boolean}
+150b4 Duration_32_Bits{boolean}
+151b4 Exit_Status_Supported{boolean}
+152b4 Fractional_Fixed_Ops{boolean}
+153b4 Frontend_Layout{boolean}
+154b4 Machine_Overflows{boolean}
+155b4 Machine_Rounds{boolean}
+156b4 Preallocated_Stacks{boolean}
+157b4 Signed_Zeros{boolean}
+158b4 Stack_Check_Default{boolean}
+159b4 Stack_Check_Probes{boolean}
+160b4 Stack_Check_Limits{boolean}
+161b4 Support_Aggregates{boolean}
+162b4 Support_Composite_Assign{boolean}
+163b4 Support_Composite_Compare{boolean}
+164b4 Support_Long_Shifts{boolean}
+165b4 Always_Compatible_Rep{boolean}
+166b4 Suppress_Standard_Library{boolean}
+167b4 Use_Ada_Main_Program_Name{boolean}
+168b4 ZCX_By_Default{boolean}
+

@@ -1,0 +1,70 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U memory_move%b		memory_move.adb		009d619f NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+
+U memory_move%s		memory_move.ads		18f58285 NE OO PR PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.ads			i-c.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20140406181358 69adb1b9 interfaces%s
+D i-c.ads		20140406181358 ed15b264 interfaces.c%s
+D memory_move.ads	20140409161144 6e2a4a72 memory_move%s
+D memory_move.adb	20140409161144 975ca4eb memory_move%b
+D system.ads		20140406181358 9bca7a93 system%s
+X 1 ada.ads
+16K9*Ada 19e8 6|5r6 11r30
+X 2 a-unccon.ads
+20v14*Unchecked_Conversion 6|5w10 11r34
+X 3 interfac.ads
+38K9*Interfaces 179e15 5|9r6 9r24
+X 4 i-c.ads
+39K20*C 102e17 5|9w17 9r35
+72M9*size_t 5|14r58 6|9r31 17r58
+84E9*char<character>
+88A9*char_array(84E9)<72M9> 6|9r19
+X 5 memory_move.ads
+11K9*Memory_Move 23l5 23e16 6|7b14 43l5 43t16
+14U14*memmove 14>23 14>39 14>54 15i<c,memmove>22 6|17b14 41l8 41t15
+14m23 Dest{7|87M9} 6|17b23 18r46 32r10
+14m39 Src{7|87M9} 6|17b39 19r46 32r17
+14m54 N{4|72M9} 6|17b54 23r10 33r32 37r24
+X 6 memory_move.adb
+9A12 mem{4|88A9}<4|72M9> 10r30
+10P9 memptr(9A12) 11r65 18r25 19r25
+11V13 to_memptr[2|20]{10P9} 18s35 19s35
+18p7 dest_p{10P9} 34r13 38r13
+19p7 src_p{10P9} 34r27 38r27
+33m14 J{4|72M9} 34r21 34r34
+37m14 J{4|72M9} 38r21 38r34
+X 7 system.ads
+60K9*System 5|8w6 8r18 7|170e11
+87M9*Address 5|14r30 14r45 6|11r56 17r30 17r45
+99V14*">"{boolean} 6|32r15
+

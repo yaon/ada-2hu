@@ -1,0 +1,114 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U ada.real_time.timing_events%b  a-rttiev.adb	b10afc6e NE OL PK
+W ada%s			ada.ads			ada.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W system%s		system.ads		system.ali
+W system.bb%s		s-bb.ads		s-bb.ali
+W system.bb.time%s	s-bbtime.adb		s-bbtime.ali
+
+U ada.real_time.timing_events%s  a-rttiev.ads	8bf6c1f2 BN NE OL PK
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W system%s		system.ads		system.ali
+W system.bb%s		s-bb.ads		s-bb.ali
+W system.bb.timing_events%s  s-bbtiev.adb	s-bbtiev.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-reatim.ads		20140406181354 67d7729a ada.real_time%s
+D a-rttiev.ads		20140406181358 f8eb9b1f ada.real_time.timing_events%s
+D a-rttiev.adb		20140406181356 60eabc7d ada.real_time.timing_events%b
+D a-tags.ads		20140406181354 cc425f51 ada.tags%s
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D system.ads		20140406181358 9bca7a93 system%s
+D s-bb.ads		20140406181356 883768d6 system.bb%s
+D s-bbbosu.ads		20140406181354 3f67a4b3 system.bb.board_support%s
+D s-bbcppr.ads		20140406181358 37229a46 system.bb.cpu_primitives%s
+D s-bcprmu.ads		20140406181356 b5ec9aa9 system.bb.cpu_primitives.multiprocessors%s
+D s-bbinte.ads		20140406181354 4743e2d6 system.bb.interrupts%s
+D s-bbpara.ads		20140406181356 ea820e4a system.bb.parameters%s
+D s-bbthre.ads		20140406181356 d71e350d system.bb.threads%s
+D s-bbthqu.ads		20141121140426 6e3d132d system.bb.threads.queues%s
+D s-bbtime.ads		20140406181358 d0e0540a system.bb.time%s
+D s-bbtiev.ads		20140406181356 14ca2877 system.bb.timing_events%s
+D s-multip.ads		20140406181354 f33e0e35 system.multiprocessors%s
+D s-osinte.ads		20140406181356 9761d940 system.os_interface%s
+D s-parame.ads		20140406181358 fd0a774e system.parameters%s
+D s-stoele.ads		20140406181356 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140406181354 ed88f8fb system.storage_elements%b
+X 1 ada.ads
+16K9*Ada 19e8 3|38r9 74r5 4|32r6 35r14 48r17 130r5
+X 2 a-reatim.ads
+41K13*Real_Time 1|16k9 2|146e18 3|38r13 74r9 4|35r18 48r21 130r9
+43M9*Time<16|46M9> 3|47r17 57r57 4|77r17 125r57 127r14
+X 3 a-rttiev.ads
+38K23*Timing_Events 2|41k13 3|66E9 74l19 74e32 4|35b28 48r31 130l19 130t32
+40R9*Timing_Event<17|42R9> 43r52 45p14 46r24 50p13 51r15 53P14 54r26 57p13
+. 57r36 66c9 72e17 4|48r45 59r18 59r39 76r24 102r15 113r26 125r36 17|63p14
+. 75p13 86p13
+42P9*Timing_Event_Handler 43=37 48r17 51r36 68r25 4|62r26 78r17 102r36
+43r37 Event{40R9}
+45U14*Set_Handler 46=7 47>7 48>7 61r19 4|75b14 95l8 95t19
+46r7 Event{40R9} 4|76b7 90m7 92m44 92r44
+47m7 At_Time{2|43M9} 4|77b7 93r46
+48p7 Handler{42P9} 4|78b7 81r13 90r29
+50V13*Current_Handler{42P9} 51>7 62r19 4|101b13 106l8 106t23
+51r7 Event{40R9} 4|102b7 105r14
+53U14*Cancel_Handler<17|80p14> 54=7 55<7 63r19 4|112b14 119l8 119t22
+54r7 Event{40R9} 4|113b7 117m47 117r47 118m7
+55b7 Cancelled{boolean} 4|114b7 117m55
+57V13*Time_Of_Event{2|43M9} 57>28 64r19 4|125b13 128l8 128t21
+57r28 Event{40R9} 4|125b28 127r59
+68p10*Real_Handler{42P9} 4|62r59 66m19 90m13 105r20 118m13
+X 4 a-rttiev.adb
+37U14 Handler_Wrapper 38=7 56b14 69l8 69t23 81r43
+38c7 Event<17|42R9> 48r8 57b7 59m53 59r53
+50K12 SBTE=50:35 92r7 92r25 117r7 117r28 127r20 127r40
+59r7 RT_Event{3|40R9} 62r50 66r10 67r23
+62p7 Handler{3|42P9} 65r10 67r10
+80p7 BB_Handler{17|37P9} 94r25
+X 6 a-unccon.ads
+20v14*Unchecked_Conversion 4|32w10
+X 7 system.ads
+60K9*System 3|36r6 66r29 4|33r6 38r22 50r25 57r22 80r29 93r25 7|170e11
+X 8 s-bb.ads
+43K16*BB 3|36r13 66r36 4|33r13 38r29 50r32 57r29 80r36 93r32 8|97e14
+X 16 s-bbtime.ads
+43K19*Time 4|33w16 93r35 16|184e19
+46M9*Time 4|93r40
+X 17 s-bbtiev.ads
+32K19*Timing_Events 3|36w16 66r39 4|38r32 50r35 57r32 80r39 17|98e28
+35R9*Timing_Event 3|66r53 4|38r46 57r46 92r30 117r33 127r45 17|61e14
+37P9*Timing_Event_Handler 4|80r53
+42R9*Timing_Event
+63U14*Set_Handler 4|92s12
+80U14*Cancel_Handler 4|117s12
+86V13*Time_Of_Event{16|46M9} 4|127s25
+

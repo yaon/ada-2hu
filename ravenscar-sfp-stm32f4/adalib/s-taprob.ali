@@ -1,0 +1,144 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U system.tasking.protected_objects%b  s-taprob.adb  406a6d14 OL PK
+W system%s		system.ads		system.ali
+W system.task_primitives%s  s-taspri.ads	s-taspri.ali
+W system.task_primitives.operations%s  s-taprop.adb  s-taprop.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+
+U system.tasking.protected_objects%s  s-taprob.ads  a15edde4 EB EE NE OL PK
+W system%s		system.ads		system.ali
+W system.multiprocessors%s  s-multip.adb	s-multip.ali
+W system.multiprocessors.fair_locks%s  s-mufalo.adb  s-mufalo.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D system.ads		20140406181358 9bca7a93 system%s
+D s-bb.ads		20140406181356 883768d6 system.bb%s
+D s-bbbosu.ads		20140406181354 3f67a4b3 system.bb.board_support%s
+D s-bbcppr.ads		20140406181358 37229a46 system.bb.cpu_primitives%s
+D s-bcprmu.ads		20140406181356 b5ec9aa9 system.bb.cpu_primitives.multiprocessors%s
+D s-bbinte.ads		20140406181354 4743e2d6 system.bb.interrupts%s
+D s-bbpara.ads		20140406181356 ea820e4a system.bb.parameters%s
+D s-bbthre.ads		20140406181356 d71e350d system.bb.threads%s
+D s-bbthqu.ads		20141121140426 6e3d132d system.bb.threads.queues%s
+D s-bbtime.ads		20140406181358 d0e0540a system.bb.time%s
+D s-multip.ads		20140406181354 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20140406181358 3dca0374 system.multiprocessors.fair_locks%s
+D s-mufalo.adb		20140406181358 468b48c8 system.multiprocessors.fair_locks%b
+D s-musplo.ads		20140406181356 69fa25c4 system.multiprocessors.spin_locks%s
+D s-osinte.ads		20140406181356 9761d940 system.os_interface%s
+D s-parame.ads		20140406181358 fd0a774e system.parameters%s
+D s-stoele.ads		20140406181356 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140406181354 ed88f8fb system.storage_elements%b
+D s-tasinf.ads		20140406181356 801abd01 system.task_info%s
+D s-taspri.ads		20140406181356 3d95fc44 system.task_primitives%s
+D s-taprop.ads		20140406181358 706d4f34 system.task_primitives.operations%s
+D s-taprop.adb		20140406181358 5636d700 system.task_primitives.operations%b
+D s-taskin.ads		20140406181354 41d03b44 system.tasking%s
+D s-tasdeb.ads		20140406181354 1958910d system.tasking.debug%s
+D s-taprob.ads		20140406181354 dd44e5d4 system.tasking.protected_objects%s
+D s-taprob.adb		20140406181356 ed43c7f4 system.tasking.protected_objects%b
+X 3 system.ads
+60K9*System 170e11 27|50r6 52r9 135r16 145r13 146r13 206r17 209r25 225r5
+. 28|34r6 39r14 41r8 42r8 59r27 62r25 63r33 171r5
+87M9*Address 27|135r23 145r20 146r20
+123I12*Any_Priority{integer} 27|206r24 209r32 28|62r32 63r40 75r34 135r34
+124I12*Priority{123I12} 28|59r34
+X 13 s-multip.ads
+18K16*Multiprocessors 31e27 27|50r13 221r14 28|42r15 65r7 110r10 161r10
+21I9*CPU_Range<short_short_integer>
+23I12*CPU{21I9} 28|44r41
+X 14 s-mufalo.ads
+31K32*Fair_Locks 70e38 27|50w29 221r30 28|65r23 110r26 161r26
+44R9*Fair_Lock 47e14 27|221r41
+49U14*Initialize 28|65s34
+53U14*Lock 28|110s37
+66U14*Unlock 28|161s37
+X 22 s-taspri.ads
+40K16*Task_Primitives 87e27 28|34r13 41r15
+X 23 s-taprop.ads
+44K32*Operations 121e38 28|34w29 41r31
+76U14*Set_Priority 28|98s7 164s7
+81V13*Get_Priority{3|123I12} 28|75s50
+X 25 s-taskin.ads
+47K16*Tasking 3|60k9 25|414e19 27|52r16 225r12 28|39r21 170r4 171r12
+56P9*Task_Id(54R9) 27|213r15 28|74r34 134r34
+65p4*Null_Task{56P9} 28|64r23 147r23
+70V13*Self{56P9} 28|74s45 134s45
+156N4*Null_Entry 27|126r39
+158N4*Max_Entry 27|128r38
+164I9*Entry_Index<integer> 27|130r38
+273i7*Protected_Action_Nesting{natural} 28|125m22 126r24 142r37 152m22 153r24
+325r7*Common{256R9} 28|125m15 126r17 142r30 152m15 153r17
+347V13*Get_Sec_Stack{3|87M9} 348i<c,__gnat_get_secondary_stack>22
+366i4*Unspecified_Priority{integer} 28|58r26
+375U14*Initialize 28|170s12
+402U14*Initialize_Slave 403i24
+X 27 s-taprob.ads
+52K24*Protected_Objects 25|47k16 27|205E9 225l20 225e37 28|39b29 171l20 171t37
+126N4*Null_Protected_Entry 131r12
+128N4*Max_Protected_Entry 131r36
+130I9*Protected_Entry_Index<25|164I9> 136r16 147r13
+133P9*Barrier_Function_Pointer(boolean) 135>9 136>9 155r17
+135m9 O{3|87M9}
+136i9 E{130I9}
+143P9*Entry_Action_Pointer 145>9 146>9 147>9 156r17
+145m9 O{3|87M9}
+146m9 P{3|87M9}
+147i9 E{130I9}
+154R9*Entry_Body 157e14 161r41
+155p7*Barrier{133P9}
+156p7*Action{143P9}
+161P9*Entry_Body_Access(154R9)
+163R9*Protection 175r41 205c9 223e14
+175P9*Protection_Access(163R9) 177r23 180r26 185r29 191r39 199r31 28|52r26
+. 73r29 133r31
+177p4*Null_PO{175P9}
+179U14*Initialize_Protection 180>7 181>7 28|51b14 67l8 67t29
+180p7 Object{175P9} 28|52b7 62r7 63r7 64r7 65r46
+181i7 Ceiling_Priority{integer} 28|53b7 55r34
+185U14*Lock 185>20 191r66 28|73b14 127l8 127t12
+185p20 Object{175P9} 28|73b20 85r10 94r28 98r30 110r43 115r7 120r7
+191U14*Lock_Read_Only=191:66
+191p30 Object{175P9}
+199U14*Unlock 199>22 28|133b14 165l8 165t14
+199p22 Object{175P9} 28|133b22 135r50 143r31 147r7 161r45
+206i7*Ceiling{3|123I12} 28|62m14 94r35 98r37
+209i7*Caller_Priority{3|123I12} 28|63m14 120m14 135r57
+213p7*Owner{25|56P9} 28|64m14 85r17 115m14 143r38 147m14
+221r7*Lock{14|44R9} 28|65m53 110m50 161m52
+X 28 s-taprob.adb
+44b4 Multiprocessor{boolean} 106r10 157r10
+55i7 Init_Priority{integer} 58r10 59m10 62r46
+74p7 Self_Id{25|56P9} 75r64 85r25 98r21 115r23 125r7 126r9
+75i7 Caller_Priority{3|123I12} 94r10 120r33
+134p7 Self_Id{25|56P9} 142r22 143r46 152r7 153r9 164r21
+135i7 Caller_Priority{3|123I12} 164r30
+

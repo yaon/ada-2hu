@@ -1,0 +1,70 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U system.text_io%b	s-textio.adb		02afec80 NE OL PK
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+
+U system.text_io%s	s-textio.ads		eef82a62 NE OL PR PK
+W system%s		system.ads		system.ali
+
+D interfac.ads		20140406181358 69adb1b9 interfaces%s
+D system.ads		20140406181358 9bca7a93 system%s
+D s-textio.ads		20140406181354 753250f1 system.text_io%s
+D s-textio.adb		20140406181356 1e300dc8 system.text_io%b
+X 1 interfac.ads
+38K9*Interfaces 179e15 4|34w6 34r22
+60M9*Unsigned_16 4|41r20 42r20 43r20 44r20 45r20 46r20 47r20 48r20 49r20
+. 50r20 51r20 52r20 53r20 54r20
+X 2 system.ads
+60K9*System 170e11 3|35r9 81r5 4|36r14 105r5
+X 3 s-textio.ads
+35K16*Text_IO 2|60k9 3|81l12 81e19 4|36b21 105l12 105t19
+42U14*Initialize 4|74b14 77l8 77t18
+46b4*Initialized{boolean} 4|76m7
+54V13*Is_Tx_Ready{boolean} 4|83b13
+61U14*Put 61>19 4|95b14 98l8 98t11
+61e19 C{character} 4|95b19 97r35
+65V13*Use_Cr_Lf_For_New_Line{boolean} 4|104b13
+73V13*Is_Rx_Ready{boolean} 4|89b13
+78V13*Get{character} 4|68b13
+X 4 s-textio.adb
+38N4 USART1_Base 58r27
+40R9 USART_Registers 55e14 57r13
+41m7*SR{1|60M9} 83r52 89r52
+42m7*Reserved_0{1|60M9}
+43m7*DR{1|60M9} 68r60 97m14
+44m7*Reserved_1{1|60M9}
+45m7*BRR{1|60M9}
+46m7*Reserved_2{1|60M9}
+47m7*CR1{1|60M9}
+48m7*Reserved_3{1|60M9}
+49m7*CR2{1|60M9}
+50m7*Reserved_4{1|60M9}
+51m7*CR3{1|60M9}
+52m7*Reserved_5{1|60M9}
+53m7*GTPR{1|60M9}
+54m7*Reserved_6{1|60M9}
+57r4 USART1{40R9} 58m8 58r8 59r21 68r53 83r45 89r45 97m7
+61N4 TX_Ready 83r59
+62N4 RX_Ready 89r59
+

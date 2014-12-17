@@ -1,0 +1,98 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U system.multiprocessors.fair_locks%b  s-mufalo.adb  ec2092fc NE OL PK
+W system%s		system.ads		system.ali
+W system.multiprocessors%s  s-multip.adb	s-multip.ali
+W system.os_interface%s	s-osinte.ads		s-osinte.ali
+
+U system.multiprocessors.fair_locks%s  s-mufalo.ads  a70e2885 BN NE OL PR PK
+W system%s		system.ads		system.ali
+W system.multiprocessors%s  s-multip.adb	s-multip.ali
+W system.multiprocessors.spin_locks%s  s-musplo.adb  s-musplo.ali
+
+D interfac.ads		20140406181358 69adb1b9 interfaces%s
+D system.ads		20140406181358 9bca7a93 system%s
+D s-bb.ads		20140406181356 883768d6 system.bb%s
+D s-bbbosu.ads		20140406181354 3f67a4b3 system.bb.board_support%s
+D s-bbcppr.ads		20140406181358 37229a46 system.bb.cpu_primitives%s
+D s-bcprmu.ads		20140406181356 b5ec9aa9 system.bb.cpu_primitives.multiprocessors%s
+D s-bcprmu.adb		20140406181356 47c6a6a1 system.bb.cpu_primitives.multiprocessors%b
+D s-bbinte.ads		20140406181354 4743e2d6 system.bb.interrupts%s
+D s-bbpara.ads		20140406181356 ea820e4a system.bb.parameters%s
+D s-bbthre.ads		20140406181356 d71e350d system.bb.threads%s
+D s-bbthqu.ads		20141121140426 6e3d132d system.bb.threads.queues%s
+D s-bbtime.ads		20140406181358 d0e0540a system.bb.time%s
+D s-multip.ads		20140406181354 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20140406181358 3dca0374 system.multiprocessors.fair_locks%s
+D s-mufalo.adb		20140406181358 468b48c8 system.multiprocessors.fair_locks%b
+D s-musplo.ads		20140406181356 69fa25c4 system.multiprocessors.spin_locks%s
+D s-musplo.adb		20140406181354 9fe8667a system.multiprocessors.spin_locks%b
+D s-osinte.ads		20140406181356 9761d940 system.os_interface%s
+D s-parame.ads		20140406181358 fd0a774e system.parameters%s
+X 2 system.ads
+60K9*System 170e11 14|29r6 31r9 70r5 15|29r6 31r14 33r8 58r35 106r33 146r20
+. 159r5
+X 13 s-multip.ads
+18K16*Multiprocessors 2|60k9 13|31e27 14|29r13 31r16 70r12 15|31r21 33r15
+. 159r12
+21I9*CPU_Range<short_short_integer>
+23I12*CPU{21I9} 14|41r34 15|35r41 38r54 58r28 105r54 106r26 107r17 116r25
+. 117r26 143r25
+X 14 s-mufalo.ads
+31K32*Fair_Locks 13|18k16 14|70l28 70e38 15|31b37 159l28 159t38
+41A9*Spinning_Array(boolean)<13|21I9> 42r32 45r18
+44R9*Fair_Lock 47e14 49r41 53r35 57r29 61r39 66r37 15|38r36 47r41 57r35 96r29
+. 105r36 133r39 142r37
+45a7*Spinning{41A9} 15|50m13 64m13 72m19 77r29 122r29 150m16
+46r7*Lock{16|41R9} 15|49m21 67m26 86r44 98r28 135m23 155m24
+49U14*Initialize 49=26 50r19 15|47b14 51l8 51t18
+49r26 Flock{44R9} 15|47b26 49m15 49r15 50m7
+53U14*Lock 53=20 54r19 15|57b14 90l8 90t12
+53r20 Flock{44R9} 15|57b20 64m7 67m20 67r20 72m13 77r23 86r38
+57V13*Locked{boolean} 57>21 58r19 15|96b13 99l8 99t14
+57r21 Flock{44R9} 15|96b21 98r22
+61U14*Try_Lock 61=24 61<50 62r19 15|133b14 136l8 136t16
+61r24 Flock{44R9} 15|133b24 135m17 135r17
+61b50 Succeeded{boolean} 15|133b50 135m29
+66U14*Unlock 66=22 67r19 15|142b14 157l8 157t14
+66r22 Flock{44R9} 15|142b22 143r47 150m10 155m18 155r18
+X 15 s-mufalo.adb
+35b4 Multiprocessor{boolean} 111r10
+38V13 Next_Spinning{13|23I12} 38>28 39r19 105b13 127l8 127t21 143s32
+38r28 Flock{14|44R9} 105b28 122r23
+58i7 CPU_Id{13|23I12} 64r23 72r29 77r39
+59b7 Succeeded{boolean} 67m32 68r13
+106i7 Current{13|23I12} 107r24 122r64
+107i7 CPU_Id{13|23I12} 116r16 117m16 119m16 119r26 122r39 122r55 126r14
+143i7 CPU_Id{13|23I12} 146r10 150r26
+X 16 s-musplo.ads
+29K32*Spin_Locks 14|29w29 46r18 15|33r31 16|62e38
+41R9*Spin_Lock 14|46r29 16|43e14
+49V13*Locked{boolean} 15|86s30 98s14
+53U14*Try_Lock 15|67s10 135s7
+58U14*Unlock 15|49s7 155s10
+X 18 s-osinte.ads
+50K16*OS_Interface 15|29w13 58r42 106r40 146r27 18|202e24
+198V13*Current_CPU=199:55{13|23I12} 15|58s55 106s53 146s40
+

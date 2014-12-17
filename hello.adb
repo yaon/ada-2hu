@@ -25,7 +25,7 @@ begin
       end;
    end loop;
 
-   if True then
+   if False then
       loop
          null;
       end loop;

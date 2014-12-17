@@ -1,0 +1,117 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_UNCHECKED_CONVERSION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U ada.execution_time.interrupts%b  a-extiin.adb	40f75d44 NE OL PK
+W ada%s			ada.ads			ada.ali
+W ada.execution_time%s	a-exetim.adb		a-exetim.ali
+W ada.unchecked_conversion%s
+W system%s		system.ads		system.ali
+W system.bb%s		s-bb.ads		s-bb.ali
+W system.bb.execution_time%s  s-bbexti.adb	s-bbexti.ali
+W system.bb.interrupts%s  s-bbinte.adb		s-bbinte.ali
+W system.bb.time%s	s-bbtime.adb		s-bbtime.ali
+
+U ada.execution_time.interrupts%s  a-extiin.ads	5431801a NE OL PK
+W ada%s			ada.ads			ada.ali
+W ada.execution_time%s	a-exetim.adb		a-exetim.ali
+W ada.interrupts%s	a-interr.adb		a-interr.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-exetim.ads		20140406181358 27853111 ada.execution_time%s
+D a-extiin.ads		20140406181358 4aa81a3d ada.execution_time.interrupts%s
+D a-extiin.adb		20140406181358 dce1d95d ada.execution_time.interrupts%b
+D a-interr.ads		20140406181356 391cab36 ada.interrupts%s
+D a-reatim.ads		20140406181354 67d7729a ada.real_time%s
+D a-taside.ads		20140406181354 9a31e556 ada.task_identification%s
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D system.ads		20140406181358 9bca7a93 system%s
+D s-bb.ads		20140406181356 883768d6 system.bb%s
+D s-bbbosu.ads		20140406181354 3f67a4b3 system.bb.board_support%s
+D s-bbcppr.ads		20140406181358 37229a46 system.bb.cpu_primitives%s
+D s-bcprmu.ads		20140406181356 b5ec9aa9 system.bb.cpu_primitives.multiprocessors%s
+D s-bbexti.ads		20140406181358 b8f6a7fe system.bb.execution_time%s
+D s-bbexti.adb		20140406181358 d4885661 system.bb.execution_time%b
+D s-bbinte.ads		20140406181354 4743e2d6 system.bb.interrupts%s
+D s-bbpara.ads		20140406181356 ea820e4a system.bb.parameters%s
+D s-bbprot.ads		20140406181356 f48a7e85 system.bb.protection%s
+D s-bbthre.ads		20140406181356 d71e350d system.bb.threads%s
+D s-bbthqu.ads		20141121140426 6e3d132d system.bb.threads.queues%s
+D s-bbtime.ads		20140406181358 d0e0540a system.bb.time%s
+D s-interr.ads		20140406181356 448c3263 system.interrupts%s
+D s-multip.ads		20140406181354 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20140406181358 3dca0374 system.multiprocessors.fair_locks%s
+D s-musplo.ads		20140406181356 69fa25c4 system.multiprocessors.spin_locks%s
+D s-osinte.ads		20140406181356 9761d940 system.os_interface%s
+D s-parame.ads		20140406181358 fd0a774e system.parameters%s
+D s-stoele.ads		20140406181356 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140406181354 ed88f8fb system.storage_elements%b
+D s-tasinf.ads		20140406181356 801abd01 system.task_info%s
+D s-taspri.ads		20140406181356 3d95fc44 system.task_primitives%s
+D s-taskin.ads		20140406181354 41d03b44 system.tasking%s
+D s-taprob.ads		20140406181354 dd44e5d4 system.tasking.protected_objects%s
+D s-tposen.ads		20140406181354 0588c33b system.tasking.protected_objects.single_entry%s
+X 1 ada.ads
+16K9*Ada 19e8 3|16r6 18r9 20r32 22r36 24r5 4|34r6 40r14 45r32 54r32 62r19
+. 68r5
+X 2 a-exetim.ads
+19K13*Execution_Time 1|16k9 2|83e23 3|18r13 24r9 4|40r18 68r9
+21M9*CPU_Time<6|43M9> 3|20r68 4|46r28 54r68
+X 3 a-extiin.ads
+18K28*Interrupts 2|19k13 3|24l24 24e34 4|40b33 68l24 68t34
+20V13*Clock{2|21M9} 20>20 4|54b13 59l8 59t13
+20i20 Interrupt{5|40I9} 4|54b20 56r49
+22V13*Supported{boolean} 22>24 4|61b13 66l8 66t17
+22i24 Interrupt{5|40I9} 4|62b7 63r28
+X 4 a-extiin.adb
+42K12 SBET=42:35 56r9
+43K12 SBI=43:35 56r31
+45V13 To_CPU_Time[8|20]{2|21M9} 58s14
+55m7 Execution_Time{21|46M9} 58r27
+X 5 a-interr.ads
+38K13*Interrupts 3|16w10 20r36 22r40 4|54r36 62r23 5|71e19
+40I9*Interrupt_ID<22|61I9> 3|20r47 22r51 4|54r47 62r34
+X 6 a-reatim.ads
+43M9*Time<21|46M9>
+X 8 a-unccon.ads
+20v14*Unchecked_Conversion 4|34w10 45r36
+X 9 system.ads
+60K9*System 4|36r6 37r6 38r6 42r25 43r25 46r7 55r33 9|170e11
+87M9*Address
+X 10 s-bb.ads
+43K16*BB 4|36r13 37r13 38r13 42r32 43r32 46r14 55r40 10|97e14
+X 14 s-bbexti.ads
+35K19*Execution_Time 4|36w16 42r35 14|50e29
+39V13*Interrupt_Clock{21|46M9} 4|56s14
+X 16 s-bbinte.ads
+46K19*Interrupts 4|37w16 43r35 16|90e25
+52I12*Interrupt_ID{natural} 4|56r35
+X 21 s-bbtime.ads
+43K19*Time 4|38w16 46r17 55r43 21|184e19
+46M9*Time 4|46r22 55r48
+X 22 s-interr.ads
+61I9*Ada_Interrupt_ID<short_short_integer>
+97U14*Install_Restricted_Handlers_Sequential 98i<c,__gnat_attach_all_handlers>22
+X 32 s-taskin.ads
+347V13*Get_Sec_Stack{9|87M9} 348i<c,__gnat_get_secondary_stack>22
+402U14*Initialize_Slave 403i24
+

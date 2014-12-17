@@ -1,0 +1,119 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB SS
+
+RN
+RV NO_EXCEPTIONS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U ada.task_identification%b  a-taside.adb	63cfacb0 NE OL PK
+W ada%s			ada.ads			ada.ali
+W system%s		system.ads		system.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.task_primitives%s  s-taspri.ads	s-taspri.ali
+W system.task_primitives.operations%s  s-taprop.adb  s-taprop.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.restricted%s  s-tasres.ads	s-tasres.ali
+W system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
+
+U ada.task_identification%s  a-taside.ads	7fd72a99 BN NE OL PR PK
+W ada%s			ada.ads			ada.ali
+W system%s		system.ads		system.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-taside.ads		20140406181354 9a31e556 ada.task_identification%s
+D a-taside.adb		20140406181358 9b182b6f ada.task_identification%b
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D system.ads		20140406181358 9bca7a93 system%s
+D s-bb.ads		20140406181356 883768d6 system.bb%s
+D s-bbbosu.ads		20140406181354 3f67a4b3 system.bb.board_support%s
+D s-bbcppr.ads		20140406181358 37229a46 system.bb.cpu_primitives%s
+D s-bcprmu.ads		20140406181356 b5ec9aa9 system.bb.cpu_primitives.multiprocessors%s
+D s-bbinte.ads		20140406181354 4743e2d6 system.bb.interrupts%s
+D s-bbpara.ads		20140406181356 ea820e4a system.bb.parameters%s
+D s-bbthre.ads		20140406181356 d71e350d system.bb.threads%s
+D s-bbthqu.ads		20141121140426 6e3d132d system.bb.threads.queues%s
+D s-bbtime.ads		20140406181358 d0e0540a system.bb.time%s
+D s-multip.ads		20140406181354 f33e0e35 system.multiprocessors%s
+D s-osinte.ads		20140406181356 9761d940 system.os_interface%s
+D s-parame.ads		20140406181358 fd0a774e system.parameters%s
+D s-secsta.ads		20140406181358 a4d06a42 system.secondary_stack%s
+D s-stoele.ads		20140406181356 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140406181354 ed88f8fb system.storage_elements%b
+D s-tasinf.ads		20140406181356 801abd01 system.task_info%s
+D s-taspri.ads		20140406181356 3d95fc44 system.task_primitives%s
+D s-taprop.ads		20140406181358 706d4f34 system.task_primitives.operations%s
+D s-taprop.adb		20140406181358 5636d700 system.task_primitives.operations%b
+D s-taskin.ads		20140406181354 41d03b44 system.tasking%s
+D s-tasdeb.ads		20140406181354 1958910d system.tasking.debug%s
+D s-tasres.ads		20140406181356 0c8ef6fb system.tasking.restricted%s
+D s-tarest.ads		20140406181358 128b2dbd system.tasking.restricted.stages%s
+X 1 ada.ads
+16K9*Ada 19e8 2|39r9 77r5 3|48r14 166r5
+X 2 a-taside.ads
+39K13*Task_Identification 1|16k9 2|73E9 77l9 77e28 3|48b18 166l9 166t28
+43P9*Task_Id<25|56P9> 44r41 46r28 48r32 51r24 53r33 56r37 59r30 63r32 66r30
+. 69r41 73c9 75r28 3|56r30 57r61 65r33 74r30 83r41 93r30 98r61 100r14 107r33
+. 124r37 134r24 144r30 157r32
+46p4*Null_Task_Id{43P9} 75c4 3|127r14 146r14 159r14
+48V14*"="{boolean} 48>18 48>24 3|65b15 68l9 68t11 146s12 159s12
+48p18 Left{43P9} 3|65b19 67r47
+48p24 Right{43P9} 3|65b25 67r67
+51V13*Image{string} 51>20 3|134b13 138l8 138t13
+51p20 T{43P9} 3|134b20 135r28
+53V13*Current_Task{43P9} 54r19 3|107b13 118l8 118t20
+56V13*Environment_Task{43P9} 57r19 3|124b13 128l8 128t24
+59U14*Abort_Task 59>26 60r19 3|74b14 77l8 77t18
+59p26 T{43P9} 3|74b26
+63V13*Is_Terminated{boolean} 63>28 64r19 3|157b13 164l8 164t21
+63p28 T{43P9} 3|157b28 159r10 162r53
+66V13*Is_Callable{boolean} 66>26 67r19 3|144b13 151l8 151t19
+66p26 T{43P9} 3|144b26 146r10
+69V13*Activation_Is_Complete{boolean} 69>37 3|83b13 87l8 87t30
+69p37 T{43P9} 3|83b37
+X 3 a-taside.adb
+56V13 Convert_Ids{25|56P9} 56>26 67s34 67s54 93b13 96l8 96t19 162s40
+56p26 T{2|43P9} 93b26 95r38
+57V13 Convert_Ids{2|43P9} 57>26 98b13 101l8 101t19 117s14
+57p26 T{25|56P9} 98b26 100r23
+X 5 system.ads
+60K9*System 2|36w6 37r6 73r24 3|34r6 43r6 50r8 56r46 57r30 67r14 93r46 95r14
+. 98r30 113r14 117r27 5|170e11
+87M9*Address
+X 22 s-taspri.ads
+40K16*Task_Primitives 3|34r13 113r21 117r34 22|87e27
+X 23 s-taprop.ads
+44K32*Operations 3|34w29 113r37 117r50 23|121e38
+73V13*Self{25|56P9} 3|117s61
+116V13*Is_Task_Context{boolean} 3|113s48
+X 25 s-taskin.ads
+47K16*Tasking 2|37w13 73r31 3|43r13 50r15 56r53 57r37 67r21 93r53 95r21 98r37
+. 25|414e19
+56P9*Task_Id(54R9) 2|73r39 3|56r61 57r45 93r61 95r29 98r45
+347V13*Get_Sec_Stack{5|87M9} 348i<c,__gnat_get_secondary_stack>22
+402U14*Initialize_Slave 403i24
+X 27 s-tasres.ads
+34K24*Restricted 3|43r21 50r23 27|35e30
+X 28 s-tarest.ads
+49K35*Stages 3|43w32 50r34 28|261e37
+222U14*Activate_All_Tasks_Sequential 223i<c,__gnat_activate_all_tasks>22
+245V13*Restricted_Terminated{boolean} 3|162s17
+

@@ -1,0 +1,42 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U last_chance_handler%b	last_chance_handler.adb	02718991 NE OO PK
+
+U last_chance_handler%s	last_chance_handler.ads	419b8a97 EE NE OO PK
+W system%s		system.ads		system.ali
+
+D last_chance_handler.ads  20140409161144 da51f004 last_chance_handler%s
+D last_chance_handler.adb  20140409161144 d8207995 last_chance_handler%b
+D system.ads		20140406181358 9bca7a93 system%s
+X 1 last_chance_handler.ads
+3K9*Last_Chance_Handler 9l5 9e24 2|1b14 18l5 18t24
+5U14*Last_Chance_Handler 5>35 5>57 6i<c,__gnat_last_chance_handler>22 7r22
+. 2|7b14 16l8 16t27
+5m35 Msg{3|87M9} 2|7b35 8r28
+5i57 Line{integer} 2|7b57 8r33
+X 2 last_chance_handler.adb
+10U17*OS_Exit 10>26 11b<c,exit>25 12r25 15s7
+10i26 Status{integer}
+X 3 system.ads
+60K9*System 1|1w6 5r41 2|7r41 3|170e11
+87M9*Address 1|5r48 2|7r48
+

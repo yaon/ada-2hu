@@ -1,0 +1,68 @@
+V "GNAT Lib v2014"
+A -nostdinc
+A -O2
+A --RTS=C:\cygwin\home\gingold\stm32f4\ravenscar-sfp-stm32f4
+A -fcallgraph-info=da
+A -ffunction-sections
+A -fdata-sections
+A -gnatA
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -gnatp
+A -gnatg
+A -gnatn
+P DB
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U memory_set%b		memory_set.adb		409bd207 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+
+U memory_set%s		memory_set.ads		726468d1 NE OO PR PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.ads			i-c.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20140406181358 69adb1b9 interfaces%s
+D i-c.ads		20140406181358 ed15b264 interfaces.c%s
+D memory_set.ads	20140409161144 04bba026 memory_set%s
+D memory_set.adb	20140409161144 bdcbfd27 memory_set%b
+D system.ads		20140406181358 9bca7a93 system%s
+X 1 ada.ads
+16K9*Ada 19e8 6|1r6 14r14
+X 2 a-unccon.ads
+20v14*Unchecked_Conversion 6|1w10 14r18
+X 3 interfac.ads
+38K9*Interfaces 179e15 5|2r6 2r24
+X 4 i-c.ads
+39K20*C 102e17 5|2w17 2r35
+52I9*int<integer> 5|7r38 6|9r38
+72M9*size_t 5|7r50 6|9r50 10r40
+84E9*char<character> 6|21r25
+88A9*char_array(84E9)<72M9> 6|10r28
+X 5 memory_set.ads
+4K9*Memory_Set 13l5 13e15 6|3b14 28l5 28t15
+7V13*Memset{7|87M9} 7>21 7>34 7>43 8i<c,memset>22 6|9b13 26l8 26t14
+7m21 M{7|87M9} 6|9b21 16r45 25r14
+7i34 C{4|52I9} 6|9b34 21r35
+7m43 Size{4|72M9} 6|9b43 19r10 20r24
+X 6 memory_set.adb
+10A15 Mem_Array{4|88A9}<4|72M9> 11r30
+11P12 Mem_Ptr(10A15) 14r49 16r23
+13V16 To_Memptr[2|20]{11P12} 16s34
+16p7 Dest{11P12} 21r13
+20m14 J{4|72M9} 21r19
+X 7 system.ads
+60K9*System 5|1w6 1r18 7|170e11
+87M9*Address 5|7r25 7r65 6|9r25 9r65 14r40
+
