@@ -9,7 +9,7 @@ is
 begin
   Screen_Interface.Initialize;
 
-  Fill_Screen (Gray);
+  Fill_Screen (Black);
 
   declare
     Last_X : Width := (Width'Last - Width'First) / 2;
@@ -35,10 +35,10 @@ begin
 
       -- Clear cross.
       for I in Width loop
-        Set_Pixel ((I, Last_Y), Gray);
+        Set_Pixel ((I, Last_Y), Black);
       end loop;
       for I in Height loop
-        Set_Pixel ((Last_X, I), Gray);
+        Set_Pixel ((Last_X, I), Black);
       end loop;
 
       -- Draw cross.
@@ -48,18 +48,18 @@ begin
       -- Check where is the finger, update the ship accrodingly
       if State.X < (Width'Last - Width'First) / 2 then
         if Pos > 0 then
-          Set_Pixel((Pos + Ship_Length, Mid + 1), Gray);
+          Set_Pixel((Pos + Ship_Length, Mid + 1), Black);
           Set_Pixel((Pos - 1, Mid + 1), Pink);
-          Set_Pixel((Pos + Ship_Length, Mid), Gray);
+          Set_Pixel((Pos + Ship_Length, Mid), Black);
           Set_Pixel((Pos - 1, Mid), Pink);
           Pos := Pos - 1;
         end if;
         Cur_Col := Red;
       else
         if Pos < (Width'Last - Width'First) - Ship_Length then
-          Set_Pixel((Pos, Mid + 1), Gray);
+          Set_Pixel((Pos, Mid + 1), Black);
           Set_Pixel((Pos + Ship_Length + 1, Mid + 1), Pink);
-          Set_Pixel((Pos, Mid), Gray);
+          Set_Pixel((Pos, Mid), Black);
           Set_Pixel((Pos + Ship_Length + 1, Mid), Pink);
           Pos := Pos + 1;
         end if;
