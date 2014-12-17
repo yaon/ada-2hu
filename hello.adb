@@ -9,8 +9,6 @@ is
 begin
   Screen_Interface.Initialize;
 
-  Fill_Screen (Black);
-
   declare
     Last_X : Width := (Width'Last - Width'First) / 2;
     Last_Y : Height := (Height'Last - Height'First) / 2;
@@ -18,12 +16,15 @@ begin
     Ship_Length : constant Integer := 12;
     Pos : Integer := Last_X;
     State : Touch_State;
-    Cur_Col : Color;
+    Ship_Color : Color := Pink;
+    Bg_Color : Color := Black;
   begin
+    Fill_Screen (Bg_Color);
+
     -- Draw ship
     for I in Pos .. Pos + Ship_Length loop
-      Set_Pixel((I, Mid + 1), Pink);
-      Set_Pixel((I, Mid), Pink);
+      Set_Pixel((I, Mid + 1), Ship_Color);
+      Set_Pixel((I, Mid), Ship_Color);
     end loop;
 
     loop
@@ -33,45 +34,28 @@ begin
           and then (State.X /= Last_X or State.Y /= Last_Y);
       end loop;
 
-      -- Clear cross.
-      for I in Width loop
-        Set_Pixel ((I, Last_Y), Black);
-      end loop;
-      for I in Height loop
-        Set_Pixel ((Last_X, I), Black);
-      end loop;
-
-      -- Draw cross.
+      -- Update new state
       Last_Y := State.Y;
       Last_X := State.X;
 
-      -- Check where is the finger, update the ship accrodingly
+      -- Check where is the finger, update the ship accordingly
       if State.X < (Width'Last - Width'First) / 2 then
         if Pos > 0 then
-          Set_Pixel((Pos + Ship_Length, Mid + 1), Black);
-          Set_Pixel((Pos - 1, Mid + 1), Pink);
-          Set_Pixel((Pos + Ship_Length, Mid), Black);
-          Set_Pixel((Pos - 1, Mid), Pink);
+          Set_Pixel((Pos + Ship_Length, Mid + 1), Bg_Color);
+          Set_Pixel((Pos - 1, Mid + 1), Ship_Color);
+          Set_Pixel((Pos + Ship_Length, Mid), Bg_Color);
+          Set_Pixel((Pos - 1, Mid), Ship_Color);
           Pos := Pos - 1;
         end if;
-        Cur_Col := Red;
       else
         if Pos < (Width'Last - Width'First) - Ship_Length then
-          Set_Pixel((Pos, Mid + 1), Black);
-          Set_Pixel((Pos + Ship_Length + 1, Mid + 1), Pink);
-          Set_Pixel((Pos, Mid), Black);
-          Set_Pixel((Pos + Ship_Length + 1, Mid), Pink);
+          Set_Pixel((Pos, Mid + 1), Bg_Color);
+          Set_Pixel((Pos + Ship_Length + 1, Mid + 1), Ship_Color);
+          Set_Pixel((Pos, Mid), Bg_Color);
+          Set_Pixel((Pos + Ship_Length + 1, Mid), Ship_Color);
           Pos := Pos + 1;
         end if;
-        Cur_Col := Blue;
       end if;
-
-      for I in Width loop
-        Set_Pixel ((I, Last_Y), Cur_Col);
-      end loop;
-      for I in Height loop
-        Set_Pixel ((Last_X, I), Cur_Col);
-      end loop;
     end loop;
   end;
 end hello;
