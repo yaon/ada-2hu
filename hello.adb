@@ -7,74 +7,66 @@ is
      (White, Blue, Green, Orange, Red, Yellow, Black, Gray,
       Pink, Light_Gray, Sky_Blue, Violet);
 begin
-   Screen_Interface.Initialize;
+  Screen_Interface.Initialize;
 
-   --  Draw rectangles
-   for I in 0 .. width'last / 2 loop
-      declare
-         C : constant Color := All_Colors ((I / 8) mod All_Colors'Length);
-      begin
-         for X in Width'First + I .. Width'Last - I loop
-            Set_Pixel ((X, Height'First + I), C);
-            Set_Pixel ((X, Height'Last - I), C);
-         end loop;
-         for Y in Height'First + I .. Height'Last - I loop
-            Set_Pixel ((Width'First + I, Y), C);
-            Set_Pixel ((Width'Last - I, Y), C);
-         end loop;
-      end;
-   end loop;
+  Fill_Screen (Gray);
 
-   if False then
+  declare
+    Last_X : Width := (Width'Last - Width'First) / 2;
+    Last_Y : Height := (Height'Last - Height'First) / 2;
+    Mid : constant Integer := Last_Y;
+    Ship_Length : constant Integer := 12;
+    Pos : Integer := Last_X;
+    State : Touch_State;
+    Cur_Col : Color;
+  begin
+    -- Draw ship
+    for I in Pos .. Pos + Ship_Length loop
+      Set_Pixel((I, Mid), Pink);
+    end loop;
+
+    loop
       loop
-         null;
-      end loop;
-   else
-      while not Get_Touch_State.Touch_Detected loop
-         null;
+        State := Get_Touch_State;
+        exit when State.Touch_Detected
+          and then (State.X /= Last_X or State.Y /= Last_Y);
       end loop;
 
-      Fill_Screen (Gray);
+      -- Clear cross.
+      for I in Width loop
+        Set_Pixel ((I, Last_Y), Gray);
+      end loop;
+      for I in Height loop
+        Set_Pixel ((Last_X, I), Gray);
+      end loop;
 
-      declare
-         Last_X : Width := (Width'Last - Width'First) / 2;
-         Last_Y : Height := (Height'Last - Height'First) / 2;
-         State : Touch_State;
-      begin
-         loop
-            loop
-               State := Get_Touch_State;
-               exit when State.Touch_Detected
-                 and then (State.X /= Last_X or State.Y /= Last_Y);
-            end loop;
+      -- Draw cross.
+      Last_Y := State.Y;
+      Last_X := State.X;
 
-            --  Clear cross.
-            for I in Width loop
-               Set_Pixel ((I, Last_Y), Gray);
-            end loop;
-            for I in Height loop
-               Set_Pixel ((Last_X, I), Gray);
-            end loop;
+      -- Check where is the finger
+      if State.X < (Width'Last - Width'First) / 2 then
+        if Pos >= 0 then
+          Set_Pixel((Pos + Ship_Length, Mid), Gray);
+          Set_Pixel((Pos - 1, Mid), Pink);
+          Pos := Pos - 1;
+        end if;
+        Cur_Col := Red;
+      else
+        if Pos < (Width'Last - Width'First) - Ship_Length then
+          Set_Pixel((Pos, Mid), Gray);
+          Set_Pixel((Pos + Ship_Length + 1, Mid), Pink);
+          Pos := Pos + 1;
+        end if;
+        Cur_Col := Blue;
+      end if;
 
-            --  Draw cross.
-            Last_Y := State.Y;
-            Last_X := State.X;
-
-            for I in Width loop
-              if State.X < (Width'Last - Width'First) / 2 then
-                Set_Pixel ((I, Last_Y), Red);
-              else
-                Set_Pixel ((I, Last_Y), Blue);
-              end if;
-            end loop;
-            for I in Height loop
-              if State.X < (Width'Last - Width'First) / 2 then
-                Set_Pixel ((Last_X, I), Red);
-              else
-                Set_Pixel ((Last_X, I), Blue);
-              end if;
-            end loop;
-         end loop;
-      end;
-   end if;
+      for I in Width loop
+        Set_Pixel ((I, Last_Y), Cur_Col);
+      end loop;
+      for I in Height loop
+        Set_Pixel ((Last_X, I), Cur_Col);
+      end loop;
+    end loop;
+  end;
 end hello;
