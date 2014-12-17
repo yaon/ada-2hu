@@ -2,22 +2,25 @@ with screen_interface; use screen_Interface;
 
 procedure Hello
 is
-   type Color_Array is array (Natural range <>) of Color;
-   All_Colors : constant Color_Array :=
-     (White, Blue, Green, Orange, Red, Yellow, Black, Gray,
-      Pink, Light_Gray, Sky_Blue, Violet);
 begin
   Screen_Interface.Initialize;
 
   declare
+    Bg_Color : constant Color := Black;
+
     Last_X : Width := (Width'Last - Width'First) / 2;
     Last_Y : Height := (Height'Last - Height'First) / 2;
+    State : Touch_State;
+
     Mid : constant Integer := Last_Y;
+    Ship_Color : constant Color := Pink;
     Ship_Length : constant Integer := 12;
     Pos : Integer := Last_X;
-    State : Touch_State;
-    Ship_Color : Color := Pink;
-    Bg_Color : Color := Black;
+
+    Stars_Color : constant Color := White;
+    Queue_Size : constant Integer := 100;
+    Stars : array(0 .. Queue_Size) of Point;
+    Inc : Integer := 0;
   begin
     Fill_Screen (Bg_Color);
 
@@ -25,6 +28,12 @@ begin
     for I in Pos .. Pos + Ship_Length loop
       Set_Pixel((I, Mid + 1), Ship_Color);
       Set_Pixel((I, Mid), Ship_Color);
+    end loop;
+
+    -- Init the stars
+    for I in Stars'First .. Stars'Last loop
+      Stars(I).X := I * 7 mod (Width'Last - Width'First - 2);
+      Stars(I).Y := (-I) * 2;
     end loop;
 
     loop
@@ -56,6 +65,25 @@ begin
           Pos := Pos + 1;
         end if;
       end if;
+
+      -- Update the stars
+      for I in Stars'First .. Stars'Last loop
+        Stars(I).Y := Stars(I).Y + 2;
+        if Stars(I).Y >= 2 then
+          -- clean the last star position
+          Set_Pixel((Stars(I).x, Stars(I).y - 2), Stars_Color);
+          Set_Pixel((Stars(I).x + 1, Stars(I).y - 2), Stars_Color);
+          Set_Pixel((Stars(I).x, Stars(I).y + 1 - 2), Stars_Color);
+          Set_Pixel((Stars(I).x + 1, Stars(I).y + 1 - 2), Stars_Color);
+
+          -- Draw the star
+          Set_Pixel((Stars(I).x, Stars(I).y), Stars_Color);
+          Set_Pixel((Stars(I).x + 1, Stars(I).y), Stars_Color);
+          Set_Pixel((Stars(I).x, Stars(I).y + 1), Stars_Color);
+          Set_Pixel((Stars(I).x + 1, Stars(I).y + 1), Stars_Color);
+        end if;
+      end loop;
+      Inc := Inc + 1;
     end loop;
   end;
 end hello;
