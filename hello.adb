@@ -61,10 +61,18 @@ begin
             Last_X := State.X;
 
             for I in Width loop
-               Set_Pixel ((I, Last_Y), Red);
+              if State.X < (Width'Last - Width'First) / 2 then
+                Set_Pixel ((I, Last_Y), Red);
+              else
+                Set_Pixel ((I, Last_Y), Blue);
+              end if;
             end loop;
             for I in Height loop
-               Set_Pixel ((Last_X, I), Red);
+              if State.X < (Width'Last - Width'First) / 2 then
+                Set_Pixel ((Last_X, I), Red);
+              else
+                Set_Pixel ((Last_X, I), Blue);
+              end if;
             end loop;
          end loop;
       end;
