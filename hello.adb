@@ -18,7 +18,7 @@ begin
     Pos : Integer := Last_X;
 
     Stars_Color : constant Color := White;
-    Queue_Size : constant Integer := 100;
+    Queue_Size : constant Integer := 1;
     Stars : array(0 .. Queue_Size) of Point;
     Inc : Integer := 0;
   begin
@@ -31,7 +31,7 @@ begin
     end loop;
 
     -- Init the stars
-    for I in Stars'First .. Stars'Last loop
+    for I in Stars'First .. Stars'Last-1 loop
       Stars(I).X := I * 7 mod (Width'Last - Width'First - 2);
       Stars(I).Y := (-I) * 2;
     end loop;
@@ -67,7 +67,7 @@ begin
       end if;
 
       -- Update the stars
-      for I in Stars'First .. Stars'Last loop
+      for I in Stars'First .. Stars'Last-1 loop
         Stars(I).Y := Stars(I).Y + 2;
         if Stars(I).Y >= 2 then
           -- clean the last star position
