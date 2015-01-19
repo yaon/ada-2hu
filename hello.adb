@@ -11,11 +11,11 @@ is
   State : Touch_State;
 
   Stars_Color : constant Color := White;
-  Queue_Size : constant Integer := 100;
+  Queue_Size : constant Integer := 23;
   Stars : array(0 .. Queue_Size) of Point;
   Inc : Integer := 0;
 
-  Period : constant Time_Span := Milliseconds(100);
+  Period : constant Time_Span := Milliseconds(10);
   Target_Time : Time;
 
 begin
@@ -30,8 +30,10 @@ begin
 
   -- Init the stars
   for I in Stars'First .. Stars'Last - 1 loop
-    Stars(I).X := I * 7 mod (Width'Last - Width'First - 2);
-    Stars(I).Y := (-I) * 2;
+    --  Stars(I).X := I * 7 mod (Width'Last - Width'First - 2);
+    --  Stars(I).Y := (-I) * 2;
+    Stars(I).X := I * 10;
+    Stars(I).Y := I * 10;
   end loop;
 
   loop
@@ -57,10 +59,15 @@ begin
       Stars(I).Y := Stars(I).Y + 2;
       if Stars(I).Y >= 2 then
         -- clean the last star position
-        Set_Pixel((Stars(I).x, Stars(I).y - 2), Stars_Color);
-        Set_Pixel((Stars(I).x + 1, Stars(I).y - 2), Stars_Color);
-        Set_Pixel((Stars(I).x, Stars(I).y + 1 - 2), Stars_Color);
-        Set_Pixel((Stars(I).x + 1, Stars(I).y + 1 - 2), Stars_Color);
+        Set_Pixel((Stars(I).x, Stars(I).y - 2), Bg_color);
+        Set_Pixel((Stars(I).x + 1, Stars(I).y - 2), Bg_color);
+        Set_Pixel((Stars(I).x, Stars(I).y + 1 - 2), Bg_color);
+        Set_Pixel((Stars(I).x + 1, Stars(I).y + 1 - 2), Bg_color);
+
+        -- put the star back on the top
+        if Stars(I).Y + 10 > Height'Last then
+          Stars(I).Y := 10;
+        end if;
 
         -- Draw the star
         Set_Pixel((Stars(I).x, Stars(I).y), Stars_Color);
@@ -68,6 +75,7 @@ begin
         Set_Pixel((Stars(I).x, Stars(I).y + 1), Stars_Color);
         Set_Pixel((Stars(I).x + 1, Stars(I).y + 1), Stars_Color);
       end if;
+
     end loop;
     Inc := Inc + 1;
   end loop;
