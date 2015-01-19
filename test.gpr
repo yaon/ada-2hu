@@ -1,0 +1,33 @@
+project TestShip is
+
+   for Languages use ("Ada");
+   for Main use ("testship.adb");
+   for Source_Dirs use (".", "stm32f4");
+   for Object_Dir use "obj";
+   for Exec_Dir use "obj";
+   for Target use "arm-eabi";
+   -- for Runtime ("Ada") use "ravenscar-sfp-stm32f4";
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-g", "-gnatwa", "-gnatQ", "-gnatw.X");
+   end Compiler;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-g");
+   end Builder;
+
+   package Naming is
+      for Body ("last_chance_handler") use
+        "last_chance_handler-stm32f429xx.adb";
+      for Casing use "lowercase";
+   end Naming;
+
+   package Ide is
+      for Gnat use "arm-eabi-gnat";
+      for Gnatlist use "arm-eabi-gnatls";
+      for Debugger_Command use "arm-eabi-gdb";
+      for Program_Host use "localhost:4242";
+      for Communication_Protocol use "remote";
+   end Ide;
+
+end TestShip;
