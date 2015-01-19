@@ -1,4 +1,5 @@
 with screen_interface; use screen_Interface;
+with Ada.Real_Time; use Ada.Real_Time;
 
 procedure Hello
 is
@@ -21,6 +22,9 @@ begin
     Queue_Size : constant Integer := 1;
     Stars : array(0 .. Queue_Size) of Point;
     Inc : Integer := 0;
+
+    Period : constant Time_Span := Milliseconds(100);
+    Target_Time : Time;
   begin
     Fill_Screen (Bg_Color);
 
@@ -37,11 +41,9 @@ begin
     end loop;
 
     loop
-      loop
-        State := Get_Touch_State;
-        exit when State.Touch_Detected
-          and then (State.X /= Last_X or State.Y /= Last_Y);
-      end loop;
+      Target_Time := Clock + Period;
+      delay until Target_Time;
+      State := Get_Touch_State;
 
       -- Update new state
       Last_Y := State.Y;
