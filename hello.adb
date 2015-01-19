@@ -11,7 +11,7 @@ is
   State : Touch_State;
 
   Stars_Color : constant Color := White;
-  Queue_Size : constant Integer := 23;
+  Queue_Size : constant Integer := 9;
   Stars : array(0 .. Queue_Size) of Point;
   Inc : Integer := 0;
 
@@ -32,8 +32,8 @@ begin
   for I in Stars'First .. Stars'Last - 1 loop
     --  Stars(I).X := I * 7 mod (Width'Last - Width'First - 2);
     --  Stars(I).Y := (-I) * 2;
-    Stars(I).X := I * 10;
-    Stars(I).Y := I * 10;
+    Stars(I).X := I*29;
+    Stars(I).Y := (I*10) mod 30;
   end loop;
 
   loop
@@ -45,7 +45,7 @@ begin
     Last_Y := State.Y;
     Last_X := State.X;
 
-    -- Check where is the finger, update the ship accordingly
+    -- Check where the finger is, update the ship accordingly
     if State.Touch_Detected then
       if State.X < (Width'Last - Width'First) / 2 then
         Ship.move_left;
@@ -53,6 +53,15 @@ begin
         Ship.move_right;
       end if;
     end if;
+
+    -- Detect collision
+    for I in Stars'First .. Stars'Last - 1 loop
+      if abs(Stars(I).y - Ship.get_posy) < 2
+        and Stars(I).x > Ship.get_posx
+        and Stars(I).x < Ship.get_posx + 12 then
+        Ship.on_star_collision;
+      end if;
+    end loop;
 
     -- Update the stars
     for I in Stars'First .. Stars'Last - 1 loop

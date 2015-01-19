@@ -54,9 +54,13 @@ package body Ship is
   procedure on_star_collision is
   begin
     if moved_right then
-      move_left;
+      for I in 0..20 loop
+        move_left;
+      end loop;
     else
-      move_right;
+      for I in 0..20 loop
+        move_right;
+      end loop;
     end if;
   end on_star_collision;
 end Ship;
