@@ -18,15 +18,14 @@ procedure TestShip is
     Pos_X := Pos_X + 20;
   end draw;
 
-  procedure ok is
+  procedure check (b : Boolean) is
   begin
-    draw(Green);
-  end ok;
-
-  procedure ko is
-  begin
-    draw(Red);
-  end ko;
+    if b then
+      draw(Green);
+    else
+      draw(Red);
+    end if;
+  end check;
 
 begin
   Screen_Interface.Initialize;
@@ -35,20 +34,12 @@ begin
   -- 1.a) move_left
   Ship_X := Ship.get_posx;
   Ship.move_left;
-  if Ship.get_posx = Ship_X - Shift then
-    ok;
-  else
-    ko;
-  end if;
+  check(Ship.get_posx = Ship_X - Shift);
 
   -- 1.b) move_right
   Ship_X := Ship.get_posx;
   Ship.move_right;
-  if Ship.get_posx = Ship_X + Shift then
-    ok;
-  else
-    ko;
-  end if;
+  check(Ship.get_posx = Ship_X + Shift);
 
   -- set ship position to 0
   loop
@@ -60,12 +51,8 @@ begin
 
   -- 2) check if x position stay in 0 after moving left
   Ship.move_left;
-  if Ship.get_posx = 0 then
-    ok;
-  else
-    ko;
-  end if;
-  
+  check(Ship.get_posx = 0);
+
   -- set ship position to max width
   loop
     if Ship.get_posx = Width'Last - Ship.get_length then
@@ -76,31 +63,19 @@ begin
 
   -- 2) check if x position stay in max width after moving right
   Ship.move_right;
-  if Ship.get_posx = Width'Last - Ship.get_length then
-    ok;
-  else
-    ko;
-  end if;
+  check(Ship.get_posx = Width'Last - Ship.get_length);
 
   -- 4) ship moving left, check if go to right after colliding
   Ship.move_left;
   Ship_X := Ship.get_posx;
   Ship.on_star_collision;
-  if Ship.get_posx > Ship_X then
-    ok;
-  else
-    ko;
-  end if;
+  check(Ship.get_posx > Ship_X);
 
   -- 4) ship moving right, check if go to left after colliding
   Ship.move_right;
   Ship_X := Ship.get_posx;
   Ship.on_star_collision;
-  if Ship.get_posx < Ship_X then
-    ok;
-  else
-    ko;
-  end if;
+  check(Ship.get_posx < Ship_X);
 
   -- loop to avoid exiting
   loop
